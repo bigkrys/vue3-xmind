@@ -1,0 +1,18 @@
+language: node_js
+node_js: stable
+branches:
+  only:
+  - main
+install:
+- npm install
+script:
+- npm run build
+after_script: 
+  - cd ./dist
+  - git init
+  - git config user.name "bigkrys"
+  - git config user.email "krysliang@163.com"
+  - git add .
+  - git commit -m "Travis CI Auto Builder"
+  - git push --force --quiet "https://${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}@${GH_REF}" master:deploy
+  - ssh your-name@bigkrys 'cd /your-path && git fetch --all && git reset --hard origin/deploy && git pull'
