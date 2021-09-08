@@ -40,7 +40,7 @@ export default defineComponent({
       const newvalue = e.target.value;
       this.value = newvalue;
       const newdata:any = this.$props.item;
-      newdata.text = newvalue;
+      newdata.name = newvalue;
       this.$emit('changeBoxData', this.$props.index, newdata);
     },
     onActivated() {
@@ -56,8 +56,8 @@ export default defineComponent({
     },
   },
   mounted() {
-    if (this.$props.item && this.$props.item.text) {
-      this.value = this.$props.item.text;
+    if (this.$props.item && this.$props.item.name) {
+      this.value = this.$props.item.name;
       this.itemindex = this.$props.index ? this.$props.index : 0;
     } else {
       this.value = '-';
@@ -67,7 +67,7 @@ export default defineComponent({
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style   lang='less' scope>
+<style  scope>
 .box{
   width: 100px;
   height: 50px;
@@ -79,17 +79,17 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  input{
-    border: none;
-    width: 80%;
-    text-align: center;
-    background-color: transparent ;
-    color: aliceblue !important;
-    &:focus{
-      border: none;
-      box-shadow: none;
-      outline: none;
-    }
-  }
+}
+.box input{
+  border: none;
+  width: 80%;
+  text-align: center;
+  background-color: transparent !important;
+  color: aliceblue !important;
+}
+.box input:focus{
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
 </style>

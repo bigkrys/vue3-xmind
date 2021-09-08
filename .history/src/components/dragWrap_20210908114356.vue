@@ -68,21 +68,12 @@ export default defineComponent({
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang='less'>
-@width: 100px;
-@height: 50px;
-
+<style scoped>
 .drap-container{
   width: 80%;
   height: 80%;
 }
 .nodeBox{
-  display: inline-flex;
-}
-.childBox {
-  display: flex;
-  position: relative;
-  padding: 10px;
-  margin-left: @width+30px;
+  
 }
 </style>

@@ -1,7 +1,5 @@
 <template>
-  <vue-drag-resize :w="vw" :h="vh" :x="itemindex*(vw+40)" :isActive="isActive"
-   v-on:resizing="resize" @activated="onActivated"  @deactivated="onDeactivated"
-   @clicked="onClick">
+  <vue-drag-resize :w="vw" :h="vh" :x="itemindex*40" v-on:resizing="resize" @activated="onActivated" >
     <div class="box" :style="{ width: `${vw}px`, height: `${vh}px` }">
       <input v-model="value" @change="change" id="boxinput" ref="boxinput"/>
     </div>
@@ -27,7 +25,6 @@ export default defineComponent({
       vh: 100,
       value: '',
       itemindex: 0,
-      isActive: false,
     };
   },
   methods: {
@@ -40,7 +37,7 @@ export default defineComponent({
       const newvalue = e.target.value;
       this.value = newvalue;
       const newdata:any = this.$props.item;
-      newdata.text = newvalue;
+      newdata.name = newvalue;
       this.$emit('changeBoxData', this.$props.index, newdata);
     },
     onActivated() {
@@ -48,16 +45,10 @@ export default defineComponent({
       const boxinput:any = this.$refs.boxinput;
       boxinput.focus();
     },
-    onDeactivated() {
-      this.isActive = false;
-    },
-    onClick() {
-      this.isActive = true;
-    },
   },
   mounted() {
-    if (this.$props.item && this.$props.item.text) {
-      this.value = this.$props.item.text;
+    if (this.$props.item && this.$props.item.name) {
+      this.value = this.$props.item.name;
       this.itemindex = this.$props.index ? this.$props.index : 0;
     } else {
       this.value = '-';
@@ -67,7 +58,7 @@ export default defineComponent({
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style   lang='less' scope>
+<style  scope>
 .box{
   width: 100px;
   height: 50px;
@@ -79,17 +70,17 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  input{
-    border: none;
-    width: 80%;
-    text-align: center;
-    background-color: transparent ;
-    color: aliceblue !important;
-    &:focus{
-      border: none;
-      box-shadow: none;
-      outline: none;
-    }
-  }
+}
+.box input{
+  border: none;
+  width: 80%;
+  text-align: center;
+  background-color: transparent;
+  color: aliceblue;
+}
+.box input:focus{
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
 </style>

@@ -67,7 +67,7 @@ export default defineComponent({
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style   lang='less' scope>
+<style  scope>
 .box{
   width: 100px;
   height: 50px;
@@ -79,17 +79,17 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  input{
-    border: none;
-    width: 80%;
-    text-align: center;
-    background-color: transparent ;
-    color: aliceblue !important;
-    &:focus{
-      border: none;
-      box-shadow: none;
-      outline: none;
-    }
-  }
+}
+.box input{
+  border: none;
+  width: 80%;
+  text-align: center;
+  background-color: transparent ;
+  color: aliceblue !important;
+}
+.box input:focus{
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
 </style>

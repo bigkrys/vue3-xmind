@@ -79,7 +79,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  input{
+  &input{
     border: none;
     width: 80%;
     text-align: center;

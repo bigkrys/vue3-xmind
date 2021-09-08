@@ -77,12 +77,19 @@ export default defineComponent({
   height: 80%;
 }
 .nodeBox{
-  display: inline-flex;
+  margin: 20px;
 }
 .childBox {
   display: flex;
   position: relative;
   padding: 10px;
-  margin-left: @width+30px;
+  &:after {
+    content: "";
+    position: absolute;
+    border-left: 1px solid rgb(17, 15, 15);
+    height: 10px;
+    left:@width;
+    top: @height;
+  }
 }
 </style>

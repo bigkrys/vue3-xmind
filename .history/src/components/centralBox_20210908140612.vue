@@ -1,5 +1,5 @@
 <template>
-  <vue-drag-resize :w="vw" :h="vh" :x="itemindex*(vw+40)" :isActive="isActive"
+  <vue-drag-resize :w="vw" :h="vh"  :isActive="isActive"
    v-on:resizing="resize" @activated="onActivated"  @deactivated="onDeactivated"
    @clicked="onClick">
     <div class="box" :style="{ width: `${vw}px`, height: `${vh}px` }">

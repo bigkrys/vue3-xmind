@@ -77,7 +77,7 @@ export default defineComponent({
   height: 80%;
 }
 .nodeBox{
-  display: inline-flex;
+  margin: 20px;
 }
 .childBox {
   display: flex;
